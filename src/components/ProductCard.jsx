@@ -76,7 +76,7 @@ function ProductCard({ product }) {
           onClick={() => navigate(`/product/${product._id}`)}
         >
           <img
-            src={`http://localhost:5000/uploads/${product.image}`}
+            src={`https://shopsphere-backend-qxry.onrender.com/uploads/${product.image}`}
             alt="product"
             className="w-full h-full object-cover hover:scale-105 transition"
           />

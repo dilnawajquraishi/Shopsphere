@@ -19,15 +19,15 @@ function AdminDashboard() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/products")
+    fetch("https://shopsphere-backend-qxry.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
 
-    fetch("http://localhost:5000/api/orders")
+    fetch("https://shopsphere-backend-qxry.onrender.com/api/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
 
-    fetch("http://localhost:5000/api/users")
+    fetch("https://shopsphere-backend-qxry.onrender.com/api/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
 

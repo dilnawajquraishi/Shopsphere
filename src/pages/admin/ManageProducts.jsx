@@ -186,7 +186,7 @@
 // export default ManageProducts;
 
 
-
+// ------------------------new---------------------------
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -199,7 +199,7 @@ function ManageProducts() {
   // 📦 GET PRODUCTS
   const getProducts = () => {
 
-    fetch("http://localhost:5000/api/products")
+    fetch("https://shopsphere-backend-qxry.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -214,7 +214,7 @@ function ManageProducts() {
   // ❌ DELETE PRODUCT
   const deleteProduct = async (id) => {
 
-    await fetch(`http://localhost:5000/api/products/${id}`, {
+    await fetch(`https://shopsphere-backend-qxry.onrender.com/api/products/${id}`, {
       method: "DELETE"
     });
 
@@ -246,7 +246,7 @@ function ManageProducts() {
             <div className="h-60 flex items-center justify-center bg-gray-100 rounded-xl overflow-hidden">
 
               <img
-                src={`http://localhost:5000/${p.image}`}
+                src={`https://shopsphere-backend-qxry.onrender.com/${p.image}`}
                 alt={p.name}
                 className="max-h-full max-w-full object-contain scale-110"
               />
