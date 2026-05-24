@@ -13,7 +13,7 @@ function ProductDetail() {
   const { wishlist, toggleWishlist } = useWishlist();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/products/${id}`)
+    fetch(`https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
       .then(res => res.json())
       .then(setProduct);
   }, [id]);
@@ -28,7 +28,7 @@ function ProductDetail() {
       {/* 🖼️ IMAGE */}
       <div>
         <img
-          src={`http://localhost:5000/${product.image}`}
+          src={`https://shopsphere-backend-qxry.onrender.com/${product.image}`}
           className="w-full h-[400px] object-cover rounded-lg"
         />
       </div>

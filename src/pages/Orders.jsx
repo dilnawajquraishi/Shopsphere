@@ -218,7 +218,7 @@ function Orders() {
     );
 
     fetch(
-      `http://localhost:5000/api/orders/user/${user.name}`
+      `https://shopsphere-backend-qxry.onrender.com/api/orders/user/${user.name}`
     )
       .then(res => res.json())
       .then(data => {

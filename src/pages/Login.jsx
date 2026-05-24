@@ -204,7 +204,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch("https://shopsphere-backend-qxry.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -245,7 +245,7 @@ function Login() {
 
         {/* GOOGLE LOGIN */}
         <a
-          href="http://localhost:5000/api/auth/google"
+          href="https://shopsphere-backend-qxry.onrender.com/api/auth/google"
           className="block text-center bg-red-500 text-white py-2 rounded mb-2"
         >
           Continue with Google

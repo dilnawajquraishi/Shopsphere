@@ -31,7 +31,7 @@ function Cart() {
 
                   <div className="w-28 h-28 bg-gray-100 flex items-center justify-center rounded-lg">
                     <img
-                      src={`http://localhost:5000/${item.image}`}
+                      src={`https://shopsphere-backend-qxry.onrender.com/${item.image}`}
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>

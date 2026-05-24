@@ -63,7 +63,7 @@ function AdminOrders() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/orders")
+    fetch("https://shopsphere-backend-qxry.onrender.com/api/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
 
