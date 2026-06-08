@@ -236,4 +236,86 @@ export default Login;
 //   );
 // }
 
+<<<<<<< HEAD
 // export default Login;
+=======
+// export default Login;
+
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
+function Login() {
+
+  const [form, setForm] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("https://shopsphere-backend-qxry.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      if (data.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    } else {
+      alert(data.message);
+    }
+  };
+
+  return (
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow w-80">
+
+        <h1 className="text-xl font-bold mb-4">🔐 Login</h1>
+
+        <input type="email" name="email" placeholder="Email"
+          onChange={handleChange} className="w-full border p-2 mb-3" />
+
+        <input type="password" name="password" placeholder="Password"
+          onChange={handleChange} className="w-full border p-2 mb-3" />
+
+        <button className="bg-blue-600 text-white w-full py-2 mb-2">
+          Login
+        </button>
+
+        {/* GOOGLE LOGIN */}
+        <a
+          href="https://shopsphere-backend-qxry.onrender.com/api/auth/google"
+          className="block text-center bg-red-500 text-white py-2 rounded mb-2"
+        >
+          Continue with Google
+        </a>
+
+        {/* REGISTER LINK */}
+        <p className="text-sm text-center">
+          New user?{" "}
+          <Link to="/register" className="text-blue-600">
+            Register here
+          </Link>
+        </p>
+
+      </form>
+
+    </div>
+  );
+}
+
+export default Login;
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295

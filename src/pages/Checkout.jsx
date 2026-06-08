@@ -387,7 +387,11 @@
 //       const user = JSON.parse(localStorage.getItem("user"));
 
 //       const res = await fetch(
+<<<<<<< HEAD
 //         "http://https://shopsphere-backend-qxry.onrender.com/api/orders",
+=======
+//         "http://localhost:5000/api/orders",
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295
 //         {
 //           method: "POST",
 

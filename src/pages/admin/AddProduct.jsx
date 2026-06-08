@@ -25,7 +25,11 @@ function AddProduct() {
   useEffect(() => {
 
     if (isEdit) {
+<<<<<<< HEAD
 // http://https://shopsphere-backend-qxry.onrender.com
+=======
+// http://localhost:5000
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295
 
       fetch(`https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
         .then((res) => res.json())
@@ -265,7 +269,11 @@ export default AddProduct;
 
 //     if (isEdit) {
 
+<<<<<<< HEAD
 //       fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
+=======
+//       fetch(`http://localhost:5000/api/products/${id}`)
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295
 //         .then((res) => res.json())
 //         .then((data) => {
 
@@ -279,7 +287,11 @@ export default AddProduct;
 //           });
 
 //           if (data.image) {
+<<<<<<< HEAD
 //             setPreview(`http://https://shopsphere-backend-qxry.onrender.com/${data.image}`);
+=======
+//             setPreview(`http://localhost:5000/${data.image}`);
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295
 //           }
 
 //         });
@@ -328,8 +340,13 @@ export default AddProduct;
 //     try {
 
 //       const url = isEdit
+<<<<<<< HEAD
 //         ? `http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`
 //         : `http://https://shopsphere-backend-qxry.onrender.com/api/products/add`;
+=======
+//         ? `http://localhost:5000/api/products/${id}`
+//         : `http://localhost:5000/api/products/add`;
+>>>>>>> 9e2c10728c54c7f1d78b4de997009e8fc9d9d295
 
 //       const method = isEdit ? "PUT" : "POST";
 
