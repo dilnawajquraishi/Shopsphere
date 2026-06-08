@@ -21,7 +21,7 @@
 //       return;
 //     }
 
-//     await fetch("http://localhost:5000/api/orders", {
+//     await fetch("http://https://shopsphere-backend-qxry.onrender.com/api/orders", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json"
@@ -92,7 +92,7 @@
 //       }));
 
 //       const res = await fetch(
-//         "http://localhost:5000/api/orders",
+//         "http://https://shopsphere-backend-qxry.onrender.com/api/orders",
 //         {
 //           method: "POST",
 
@@ -265,7 +265,7 @@
 //         qty: item.qty
 //       }));
 
-//       const res = await fetch("http://localhost:5000/api/orders", {
+//       const res = await fetch("http://https://shopsphere-backend-qxry.onrender.com/api/orders", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json"
@@ -387,7 +387,7 @@
 //       const user = JSON.parse(localStorage.getItem("user"));
 
 //       const res = await fetch(
-//         "http://localhost:5000/api/orders",
+//         "http://https://shopsphere-backend-qxry.onrender.com/api/orders",
 //         {
 //           method: "POST",
 

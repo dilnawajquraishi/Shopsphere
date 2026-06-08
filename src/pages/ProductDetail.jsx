@@ -107,7 +107,7 @@ export default ProductDetail;
 
 //   // 📦 PRODUCT
 //   useEffect(() => {
-//     fetch(`http://localhost:5000/api/products`)
+//     fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products`)
 //       .then(res => res.json())
 //       .then(data => {
 //         const p = data.find(i => i._id === id);
@@ -117,7 +117,7 @@ export default ProductDetail;
 
 //   // ⭐ REVIEWS
 //   const loadReviews = () => {
-//     fetch(`http://localhost:5000/api/reviews/${id}`)
+//     fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/reviews/${id}`)
 //       .then(res => res.json())
 //       .then(setReviews);
 //   };
@@ -134,7 +134,7 @@ export default ProductDetail;
 //       return;
 //     }
 
-//     await fetch("http://localhost:5000/api/reviews", {
+//     await fetch("http://https://shopsphere-backend-qxry.onrender.com/api/reviews", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json"
@@ -160,7 +160,7 @@ export default ProductDetail;
 //       <div className="flex gap-6">
 
 //         <img
-//           src={`http://localhost:5000/uploads/${product.image}`}
+//           src={`http://https://shopsphere-backend-qxry.onrender.com/uploads/${product.image}`}
 //           className="w-72 h-72 object-cover"
 //         />
 

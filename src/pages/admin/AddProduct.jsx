@@ -25,7 +25,7 @@ function AddProduct() {
   useEffect(() => {
 
     if (isEdit) {
-// http://localhost:5000
+// http://https://shopsphere-backend-qxry.onrender.com
 
       fetch(`https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
         .then((res) => res.json())
@@ -265,7 +265,7 @@ export default AddProduct;
 
 //     if (isEdit) {
 
-//       fetch(`http://localhost:5000/api/products/${id}`)
+//       fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
 //         .then((res) => res.json())
 //         .then((data) => {
 
@@ -279,7 +279,7 @@ export default AddProduct;
 //           });
 
 //           if (data.image) {
-//             setPreview(`http://localhost:5000/${data.image}`);
+//             setPreview(`http://https://shopsphere-backend-qxry.onrender.com/${data.image}`);
 //           }
 
 //         });
@@ -328,8 +328,8 @@ export default AddProduct;
 //     try {
 
 //       const url = isEdit
-//         ? `http://localhost:5000/api/products/${id}`
-//         : `http://localhost:5000/api/products/add`;
+//         ? `http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`
+//         : `http://https://shopsphere-backend-qxry.onrender.com/api/products/add`;
 
 //       const method = isEdit ? "PUT" : "POST";
 
@@ -502,12 +502,12 @@ export default AddProduct;
 //   // 🔥 EDIT LOAD
 //   useEffect(() => {
 //     if (isEdit) {
-//       fetch(`http://localhost:5000/api/products/${id}`)
+//       fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`)
 //         .then(res => res.json())
 //         .then(data => {
 //           setForm(data);
 //           if (data.image) {
-//             setPreview(`http://localhost:5000/${data.image}`);
+//             setPreview(`http://https://shopsphere-backend-qxry.onrender.com/${data.image}`);
 //           }
 //         });
 //     }
@@ -541,8 +541,8 @@ export default AddProduct;
 //     if (image) data.append("image", image);
 
 //     const url = isEdit
-//       ? `http://localhost:5000/api/products/${id}`
-//       : `http://localhost:5000/api/products/add`;
+//       ? `http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`
+//       : `http://https://shopsphere-backend-qxry.onrender.com/api/products/add`;
 
 //     const method = isEdit ? "PUT" : "POST";
 
@@ -646,7 +646,7 @@ export default AddProduct;
 //     data.append("image", image);
 
 //     try {
-//       const res = await fetch("http://localhost:5000/api/products/add", {
+//       const res = await fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products/add", {
 //         method: "POST",
 //         body: data
 //       });
@@ -740,7 +740,7 @@ export default AddProduct;
 //     data.append("stock", form.stock);
 //     if (image) data.append("image", image);
 
-//     await fetch("http://localhost:5000/api/products/add", {
+//     await fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products/add", {
 //       method: "POST",
 //       body: data
 //     });

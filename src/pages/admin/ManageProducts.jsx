@@ -7,7 +7,7 @@
 //   const navigate = useNavigate();
 
 //   const fetchProducts = () => {
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(setProducts);
 //   };
@@ -17,7 +17,7 @@
 //   }, []);
 
 //   const deleteProduct = async (id) => {
-//     await fetch(`http://localhost:5000/api/products/${id}`, {
+//     await fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`, {
 //       method: "DELETE"
 //     });
 //     fetchProducts();
@@ -34,7 +34,7 @@
 //           <div key={p._id} className="bg-white p-4 shadow rounded">
 
 //             <img
-//               src={`http://localhost:5000/${p.image}`}
+//               src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //               className="h-32 w-full object-cover rounded"
 //             />
 
@@ -86,7 +86,7 @@
 
 //   // 📦 GET PRODUCTS
 //   const getProducts = () => {
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(setProducts);
 //   };
@@ -97,7 +97,7 @@
 
 //   // ❌ DELETE PRODUCT
 //   const deleteProduct = async (id) => {
-//     await fetch(`http://localhost:5000/api/products/${id}`, {
+//     await fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/products/${id}`, {
 //       method: "DELETE"
 //     });
 
@@ -126,7 +126,7 @@
 //             <div className="h-60 flex items-center justify-center bg-gray-100 rounded-xl overflow-hidden">
 
 //               <img
-//                 src={`http://localhost:5000/${p.image}`}
+//                 src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //                 alt={p.name}
 //                 className="max-h-full max-w-full object-contain scale-110"
 //               />

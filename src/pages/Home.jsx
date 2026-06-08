@@ -320,7 +320,7 @@ export default Home;
 //   const { wishlist, toggleWishlist } = useWishlist();
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(data => {
 //         setProducts(data);
@@ -492,7 +492,7 @@ export default Home;
 //               <div className="relative bg-gray-100 rounded-xl flex items-center justify-center h-56 overflow-hidden">
 
 //                 <img
-//                   src={`http://localhost:5000/${p.image}`}
+//                   src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //                   alt={p.name}
 //                   className="h-full w-full object-contain hover:scale-105 transition duration-300"
 //                 />
@@ -577,7 +577,7 @@ export default Home;
 
 //   useEffect(() => {
 
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(data => {
 //         setProducts(data);
@@ -736,7 +736,7 @@ export default Home;
 //               <div className="relative bg-gray-100 rounded-xl flex items-center justify-center h-56">
 
 //                 <img
-//                   src={`http://localhost:5000/${p.image}`}
+//                   src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //                   alt={p.name}
 //                   className="max-h-full max-w-full object-contain"
 //                 />
@@ -825,7 +825,7 @@ export default Home;
 //   // 📦 GET PRODUCTS
 //   useEffect(() => {
 
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then((res) => res.json())
 //       .then((data) => {
 //         setProducts(data);
@@ -1036,7 +1036,7 @@ export default Home;
 //               <div className="relative bg-gray-100 rounded-2xl flex items-center justify-center h-60 overflow-hidden">
 
 //                 <img
-//                   src={`http://localhost:5000/${p.image}`}
+//                   src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //                   alt={p.name}
 //                   className="max-h-full max-w-full object-contain hover:scale-105 transition duration-300"
 //                 />
@@ -1134,7 +1134,7 @@ export default Home;
 //   const { wishlist, toggleWishlist } = useWishlist();
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(data => {
 //         setProducts(data);
@@ -1215,7 +1215,7 @@ export default Home;
 //               <div className="relative bg-gray-100 rounded-xl flex items-center justify-center h-56">
 
 //                 <img
-//                   src={`http://localhost:5000/${p.image}`}
+//                   src={`http://https://shopsphere-backend-qxry.onrender.com/${p.image}`}
 //                   alt={p.name}
 //                   className="max-h-full max-w-full object-contain"
 //                 />
@@ -1284,7 +1284,7 @@ export default Home;
 //   const [category, setCategory] = useState("all");
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/api/products")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/products")
 //       .then(res => res.json())
 //       .then(setProducts);
 //   }, []);

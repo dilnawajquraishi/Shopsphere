@@ -1,185 +1,234 @@
-// // // import { useState } from "react";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-// // // function Login() {
-// // //   const [email, setEmail] = useState("");
-// // //   const [password, setPassword] = useState("");
+function Login() {
 
-// // //   const handleLogin = (e) => {
-// // //     e.preventDefault();
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  });
 
-// // //     console.log("Login Data:", { email, password });
+  const navigate = useNavigate();
 
-// // //     // 👉 later API call yaha hoga
-// // //   };
+  // INPUT CHANGE
+  const handleChange = (e) => {
 
-// // //   return (
-// // //     <div className="flex justify-center items-center h-screen">
-// // //       <form
-// // //         onSubmit={handleLogin}
-// // //         className="bg-white p-6 shadow rounded w-80"
-// // //       >
-// // //         <h2 className="text-xl font-bold mb-4">Login</h2>
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
 
-// // //         <input
-// // //           className="border p-2 w-full mb-2"
-// // //           placeholder="Email"
-// // //           onChange={(e) => setEmail(e.target.value)}
-// // //         />
+  };
 
-// // //         <input
-// // //           type="password"
-// // //           className="border p-2 w-full mb-2"
-// // //           placeholder="Password"
-// // //           onChange={(e) => setPassword(e.target.value)}
-// // //         />
+  // LOGIN SUBMIT
+  const handleSubmit = async (e) => {
 
-// // //         <button className="bg-black text-white w-full py-2">
-// // //           Login
-// // //         </button>
-// // //       </form>
-// // //     </div>
-// // //   );
-// // // }
+    e.preventDefault();
 
-// // // export default Login;   
+    try {
 
-// // import { useState } from "react";
+      const res = await fetch(
+        "https://shopsphere-backend-qxry.onrender.com/api/auth/login",
+        {
+          method: "POST",
 
-// // function Login() {
-// //   const [email, setEmail] = useState("");
-// //   const [password, setPassword] = useState("");
+          headers: {
+            "Content-Type": "application/json"
+          },
 
-// //   const handleLogin = (e) => {
-// //     e.preventDefault();
+          body: JSON.stringify(form),
+        }
+      );
 
-// //     console.log("Login Data:", { email, password });
+      const data = await res.json();
 
-// //     // 👉 yaha backend API call hoga
-// //   };
+      // ✅ LOGIN SUCCESS
+      if (data.token) {
 
-// //   const handleGoogleLogin = () => {
-// //     // 👉 Google Auth redirect / Firebase auth
-// //     window.alert("Google Login Clicked");
-// //   };
+        localStorage.setItem(
+          "token",
+          data.token
+        );
 
-// //   return (
-// //     <div className="w-full min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        // ✅ IMPORTANT FIX
+        localStorage.setItem(
+          "user",
+          JSON.stringify(data.user)
+        );
 
-// //       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+        // ✅ ADMIN LOGIN
+        if (data.user?.role === "admin") {
 
-// //         <h2 className="text-2xl font-bold text-center mb-6">
-// //           Login to ShopSphere
-// //         </h2>
+          navigate("/admin");
 
-// //         {/* EMAIL LOGIN */}
-// //         <form onSubmit={handleLogin} className="flex flex-col gap-3">
+        } else {
 
-// //           <input
-// //             type="email"
-// //             placeholder="Email"
-// //             className="border p-2 rounded"
-// //             value={email}
-// //             onChange={(e) => setEmail(e.target.value)}
-// //           />
+          navigate("/");
 
-// //           <input
-// //             type="password"
-// //             placeholder="Password"
-// //             className="border p-2 rounded"
-// //             value={password}
-// //             onChange={(e) => setPassword(e.target.value)}
-// //           />
+        }
 
-// //           <button
-// //             type="submit"
-// //             className="bg-black text-white py-2 rounded hover:bg-gray-800"
-// //           >
-// //             Login
-// //           </button>
+      } else {
 
-// //         </form>
+        alert(data.message || "Login Failed");
 
-// //         {/* DIVIDER */}
-// //         <div className="my-4 text-center text-gray-400">OR</div>
+      }
 
-// //         {/* GOOGLE LOGIN */}
-// //         <button
-// //           onClick={handleGoogleLogin}
-// //           className="w-full border py-2 rounded flex items-center justify-center gap-2 hover:bg-gray-100"
-// //         >
-// //           <img
-// //             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-// //             className="w-5 h-5"
-// //           />
-// //           Continue with Google
-// //         </button>
+    } catch (err) {
 
-// //       </div>
-// //     </div>
-// //   );
-// // }
+      console.log(err);
 
-// // export default Login;
+      alert("Server Error");
+
+    }
+
+  };
+
+  return (
+
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 p-4">
+
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white w-full max-w-sm p-8 rounded-3xl shadow-2xl"
+      >
+
+        {/* TITLE */}
+        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+          🔐 Login
+        </h1>
+
+        {/* EMAIL */}
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          onChange={handleChange}
+          className="w-full border border-gray-300 focus:border-blue-500 outline-none rounded-xl px-4 py-3 mb-4"
+          required
+        />
+
+        {/* PASSWORD */}
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          onChange={handleChange}
+          className="w-full border border-gray-300 focus:border-blue-500 outline-none rounded-xl px-4 py-3 mb-4"
+          required
+        />
+
+        {/* LOGIN BUTTON */}
+        <button
+          className="bg-blue-600 hover:bg-blue-700 transition text-white w-full py-3 rounded-xl font-semibold mb-3"
+        >
+          Login
+        </button>
+
+        {/* GOOGLE LOGIN */}
+        <a
+          href="https://shopsphere-backend-qxry.onrender.com/api/auth/google"
+          className="block text-center bg-red-500 hover:bg-red-600 transition text-white py-3 rounded-xl font-semibold mb-4"
+        >
+          Continue with Google
+        </a>
+
+        {/* REGISTER */}
+        <p className="text-sm text-center text-gray-600">
+
+          New user?{" "}
+
+          <Link
+            to="/register"
+            className="text-blue-600 font-semibold"
+          >
+            Register here
+          </Link>
+
+        </p>
+
+      </form>
+
+    </div>
+
+  );
+
+}
+
+export default Login;
+
+
 
 
 
 // import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+// import { useNavigate, Link } from "react-router-dom";
 
 // function Login() {
 
-//   const [form, setForm] = useState({});
+//   const [form, setForm] = useState({ email: "", password: "" });
 //   const navigate = useNavigate();
 
 //   const handleChange = (e) => {
 //     setForm({ ...form, [e.target.name]: e.target.value });
 //   };
 
-//   const login = async (e) => {
+//   const handleSubmit = async (e) => {
 //     e.preventDefault();
 
-//     const res = await fetch("http://localhost:5000/api/auth/login", {
+//     const res = await fetch("https://shopsphere-backend-qxry.onrender.com/api/auth/login", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(form)
+//       body: JSON.stringify(form),
 //     });
 
 //     const data = await res.json();
 
-//     localStorage.setItem("token", data.token);
+//     if (data.token) {
+//       localStorage.setItem("token", data.token);
+//       localStorage.setItem("user", JSON.stringify(data.user));
 
-//     alert("Login Success");
-
-//     navigate("/");
+//       if (data.user.role === "admin") {
+//         navigate("/admin");
+//       } else {
+//         navigate("/");
+//       }
+//     } else {
+//       alert(data.message);
+//     }
 //   };
 
 //   return (
-//     <div className="max-w-md mx-auto p-6">
+//     <div className="flex justify-center items-center h-screen bg-gray-100">
 
-//       <h1 className="text-2xl font-bold mb-4">
-//         🔐 Login
-//       </h1>
+//       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow w-80">
 
-//       <form onSubmit={login} className="space-y-3">
+//         <h1 className="text-xl font-bold mb-4">🔐 Login</h1>
 
-//         <input
-//           name="email"
-//           onChange={handleChange}
-//           placeholder="Email"
-//           className="w-full border p-2"
-//         />
+//         <input type="email" name="email" placeholder="Email"
+//           onChange={handleChange} className="w-full border p-2 mb-3" />
 
-//         <input
-//           name="password"
-//           type="password"
-//           onChange={handleChange}
-//           placeholder="Password"
-//           className="w-full border p-2"
-//         />
+//         <input type="password" name="password" placeholder="Password"
+//           onChange={handleChange} className="w-full border p-2 mb-3" />
 
-//         <button className="bg-black text-white w-full py-2">
+//         <button className="bg-blue-600 text-white w-full py-2 mb-2">
 //           Login
 //         </button>
+
+//         {/* GOOGLE LOGIN */}
+//         <a
+//           href="https://shopsphere-backend-qxry.onrender.com/api/auth/google"
+//           className="block text-center bg-red-500 text-white py-2 rounded mb-2"
+//         >
+//           Continue with Google
+//         </a>
+
+//         {/* REGISTER LINK */}
+//         <p className="text-sm text-center">
+//           New user?{" "}
+//           <Link to="/register" className="text-blue-600">
+//             Register here
+//           </Link>
+//         </p>
 
 //       </form>
 
@@ -188,81 +237,3 @@
 // }
 
 // export default Login;
-
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
-function Login() {
-
-  const [form, setForm] = useState({ email: "", password: "" });
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const res = await fetch("https://shopsphere-backend-qxry.onrender.com/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-
-    const data = await res.json();
-
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      if (data.user.role === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/");
-      }
-    } else {
-      alert(data.message);
-    }
-  };
-
-  return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow w-80">
-
-        <h1 className="text-xl font-bold mb-4">🔐 Login</h1>
-
-        <input type="email" name="email" placeholder="Email"
-          onChange={handleChange} className="w-full border p-2 mb-3" />
-
-        <input type="password" name="password" placeholder="Password"
-          onChange={handleChange} className="w-full border p-2 mb-3" />
-
-        <button className="bg-blue-600 text-white w-full py-2 mb-2">
-          Login
-        </button>
-
-        {/* GOOGLE LOGIN */}
-        <a
-          href="https://shopsphere-backend-qxry.onrender.com/api/auth/google"
-          className="block text-center bg-red-500 text-white py-2 rounded mb-2"
-        >
-          Continue with Google
-        </a>
-
-        {/* REGISTER LINK */}
-        <p className="text-sm text-center">
-          New user?{" "}
-          <Link to="/register" className="text-blue-600">
-            Register here
-          </Link>
-        </p>
-
-      </form>
-
-    </div>
-  );
-}
-
-export default Login;

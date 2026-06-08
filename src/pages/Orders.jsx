@@ -9,7 +9,7 @@
 //     const user = JSON.parse(localStorage.getItem("user"));
 
 //     // 🔥 REAL DATABASE FETCH
-//     fetch(`http://localhost:5000/api/orders/user/${user._id}`)
+//     fetch(`http://https://shopsphere-backend-qxry.onrender.com/api/orders/user/${user._id}`)
 //       .then((res) => res.json())
 //       .then((data) => {
 //         setOrders(data);
@@ -110,7 +110,7 @@
 
 //   useEffect(() => {
 
-//     fetch("http://localhost:5000/api/orders")
+//     fetch("http://https://shopsphere-backend-qxry.onrender.com/api/orders")
 //       .then(res => res.json())
 //       .then(data => setOrders(data))
 //       .catch(err => console.log(err));

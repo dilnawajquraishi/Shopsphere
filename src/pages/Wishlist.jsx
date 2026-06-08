@@ -82,7 +82,7 @@ export default Wishlist;
 //           <div key={item._id} className="bg-white p-3 shadow rounded">
 
 //             <img
-//               src={`http://localhost:5000/uploads/${item.image}`}
+//               src={`http://https://shopsphere-backend-qxry.onrender.com/uploads/${item.image}`}
 //               className="h-40 w-full object-cover"
 //             />
 

@@ -132,7 +132,7 @@ export default Cart;
 //                 <div className="w-28 h-28 bg-gray-100 flex items-center justify-center rounded-lg">
 
 //                   <img
-//                     src={`http://localhost:5000/${item.image}`}
+//                     src={`http://https://shopsphere-backend-qxry.onrender.com/${item.image}`}
 //                     alt={item.name}
 //                     className="max-h-full max-w-full object-contain"
 //                   />
@@ -235,7 +235,7 @@ export default Cart;
 
 //           {/* IMAGE */}
 //           <img
-//             src={`http://localhost:5000/${item.image}`}
+//             src={`http://https://shopsphere-backend-qxry.onrender.com/${item.image}`}
 //             className="w-20 h-20 object-contain"
 //           />
 
